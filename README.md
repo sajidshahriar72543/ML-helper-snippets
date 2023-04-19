@@ -177,3 +177,28 @@ In this example, the SimpleImputer class is used to impute missing values with t
 
 Note that there are other strategies for imputing missing values, and the choice of strategy may depend on the specific characteristics of your dataset. <br>
 ***Source: chatGPT***
+### Load and Print all csv files from a directory
+```py
+import os
+import pandas as pd
+
+# Set the directory path where your CSV files are located
+directory_path = '/content/drive/MyDrive/Datasets/Acea Smart Water Analytics'
+
+# Create an empty dictionary to store the dataframes
+dfs = {}
+
+# Loop through all CSV files in the directory
+for filename in os.listdir(directory_path):
+    if filename.endswith('.csv'):
+        # Construct the full file path
+        file_path = os.path.join(directory_path, filename)
+        
+        # Read the CSV file into a dataframe and add it to the dictionary
+        df_name = os.path.splitext(filename)[0]
+        dfs[df_name] = pd.read_csv(file_path)
+
+dfs
+
+# this will create a dictionary with the csv names as keys
+```
