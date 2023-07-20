@@ -202,3 +202,9 @@ dfs
 
 # this will create a dictionary with the csv names as keys
 ```
+### Scale a dataset
+```py
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+df_scaled = scaler.fit_transform(df)
+```
